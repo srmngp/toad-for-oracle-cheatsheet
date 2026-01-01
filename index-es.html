@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toad for Oracle: Guía Rápida de Consejos y Trucos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="language-selector">
+        <a href="index.html">English</a> | <a href="index-es.html" class="active">Español</a>
+    </div>
+
+    <header class="page-header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Toad-Original_RGB.png/960px-Toad-Original_RGB.png" alt="Logo de Toad for Oracle" class="toad-logo">
+        <h1>Toad for Oracle: Guía Rápida de Consejos y Trucos</h1>
+    </header>
+
+    <div class="container">
+        <div class="section-box box-item color-1">
+            <h3><span role="img" aria-label="lupa">🔍</span> Conceptos Básicos y Navegación de Toad</h3>
+            <ul>
+                <li><strong>Schema Browser:</strong> Puerta de entrada a los objetos de BD.
+                    <ul>
+                        <li><strong>Visualización:</strong> Vista de árbol, desplegable, pestañas.</li>
+                        <li><strong>Filtrado:</strong> Filtro rápido (ej., <code>C*; D*</code>), filtros de proyecto.</li>
+                        <li><strong>Organización:</strong> Favoritos, Gestor de Proyectos (Añadir objetos con clic derecho o arrastrar/soltar).</li>
+                        <li><strong>Acciones:</strong> Clic derecho para >35 operaciones de BD.</li>
+                        <li><strong>Cargar Esquemas:</strong> Clic derecho en esquema > Cargar solo esquemas con objetos.</li>
+                    </ul>
+                </li>
+                <li><strong>Navegación:</strong>
+                    <ul>
+                        <li><code>Ctrl+J</code> para Saltar a.</li>
+                        <li>Botones Atrás/Adelante para historial de navegación.</li>
+                        <li><code>Ctrl+Tab</code> para circular entre ventanas/pestañas hijas.</li>
+                    </ul>
+                </li>
+                <li><strong>Selección Múltiple:</strong> Seleccionar múltiples objetos y clic derecho para operaciones en lote.</li>
+                <li><strong>El Contexto Importa:</strong> Dónde haces clic derecho determina las opciones del menú (cuadrículas, barras de herramientas, encabezados).</li>
+                <li><strong>Detalles Adicionales:</strong> Clic derecho en encabezado de columna para añadir Núm. Filas, Última Analizada, etc.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-2">
+            <h3><span role="img" aria-label="teclado">⌨️</span> Editor SQL y PL/SQL</h3>
+            <ul>
+                <li><strong>Editor Único:</strong> Para SQL, PL/SQL, bloques anónimos, SQL*Plus, RMAN, procedimientos Java almacenados.</li>
+                <li><strong>Plantillas de Código:</strong> Escribe <code>anon</code> y luego <code>&lt;Ctrl+Barra espaciadora&gt;</code> (dinámicas con <code>&amp;</code>). Cursor vacío muestra todas las plantillas.</li>
+                <li><strong>Code Insight:</strong> Autocompletar comandos y objetos (<code>Ctrl+.</code>).
+                    <ul>
+                        <li>Tipos: Tablas, Vistas, Alias, Funciones, Secuencias, Usuarios, Tipos de colección, Sinónimos.</li>
+                        <li>Ve variables, parámetros, tokens esperados (palabras clave).</li>
+                        <li>Ajustar retraso en Opciones > Editor > Asistencia de Código.</li>
+                    </ul>
+                </li>
+                <li><strong>DESC (F4):</strong> Ver definiciones de tabla/vista. Puedes hacer DESC de múltiples objetos, arrastrar columnas al editor, modificar objetos.</li>
+                <li><strong>SQL Recall (F8):</strong> Acceder a las últimas 500 sentencias ejecutadas (<code>Alt+Arriba/Abajo</code> para circular).</li>
+                <li><strong>SQL con Nombre:</strong> <code>Ctrl+N</code> para nombrar sentencias y recordarlas fácilmente después.</li>
+                <li><strong>Dividir Editor:</strong> Clic derecho en editor > Dividir Diseño del Editor (Superior/Inferior o Izquierda/Derecha).</li>
+                <li><strong>Formatear Código:</strong> Clic derecho > Formatear Código para embellecer SQL/PL/SQL.</li>
+                <li><strong>Hacer/Deshacer Código:</strong> <code>Ctrl+M</code> para hacer sentencia de código (C++, Delphi, Perl, Java, VB, C#), <code>Ctrl+P</code> para deshacer.</li>
+                <li><strong>Otras Teclas:</strong>
+                    <ul>
+                        <li><code>Ctrl+F9</code>: Verificar sentencia sin ejecución (solo análisis).</li>
+                        <li><code>Ctrl+F12</code>: Pasar SQL a editor externo.</li>
+                        <li><code>Ctrl+E</code>: Ejecutar Plan de Explicación en sentencia actual.</li>
+                        <li><code>F2</code>: Alternar editor a pantalla completa.</li>
+                        <li><code>F5</code>: Ejecutar como script.</li>
+                        <li><code>F6</code>: Alternar entre Editor y panel de Resultados.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-3">
+            <h3><span role="img" aria-label="bicho">🐞</span> Depuración y Rendimiento PL/SQL</h3>
+            <ul>
+                <li><strong>Profiler:</strong> Identificar cuellos de botella en la ejecución.
+                    <ul>
+                        <li>Activar botón <code>Cronómetro</code>, luego ejecutar PL/SQL.</li>
+                        <li>Ver gráficos visuales en pestaña Profiler (botón Detalles).</li>
+                        <li>Soporta Oracle 11g+ Hierarchical Profiler.</li>
+                    </ul>
+                </li>
+                <li><strong>Depurador:</strong> Ejecución de código paso a paso.
+                    <ul>
+                        <li><strong>Puntos de Interrupción:</strong> <code>Shift+F5</code> establecer/eliminar en líneas ejecutables (solo puntos azules).</li>
+                        <li><strong>Puntos de Interrupción Condicionales:</strong> Doble clic en interrupción en panel Breaks.</li>
+                        <li><strong>Watches:</strong> Ver valores de variables (icono de gafas), <code>Ctrl+Alt+B</code> para añadir watch en cursor.</li>
+                        <li><strong>Smart Watches:</strong> Habilitar para ver todas las variables de código automáticamente.</li>
+                        <li><strong>Modificar:</strong> Cambiar valores de variables (icono de calculadora).</li>
+                    </ul>
+                </li>
+                <li><strong>Atajos del Depurador:</strong>
+                    <ul>
+                        <li><code>F11</code>: Ejecutar (continuar ejecución).</li>
+                        <li><code>F12</code>: Ejecutar hasta cursor.</li>
+                        <li><code>Shift+F7</code>: Rastrear dentro.</li>
+                        <li><code>Shift+F8</code>: Pasar por encima.</li>
+                        <li><code>Shift+F10</code>: Rastrear fuera.</li>
+                        <li><code>Ctrl+F5</code>: Mostrar ventana de Puntos de Interrupción.</li>
+                        <li><code>Ctrl+Alt+W</code>: Mostrar ventana de Watches.</li>
+                        <li><code>Ctrl+Alt+C</code>: Mostrar Pila de Llamadas.</li>
+                        <li><code>Ctrl+Alt+E</code>: Mostrar ventana Evaluar/Modificar.</li>
+                        <li><code>Shift+Ctrl+F9</code>: Establecer parámetros.</li>
+                    </ul>
+                </li>
+                <li><strong>Ejecutar SQL en PL/SQL:</strong> <code>Ctrl+Enter</code> en SQL incrustado (Toad extrae y solicita variables).</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-4">
+            <h3><span role="img" aria-label="tabla">📊</span> Dominio de Cuadrículas de Datos</h3>
+            <ul>
+                <li><strong>Ordenar/Filtrar:</strong>
+                    <ul>
+                        <li>Clic en celda para <code>Añadir a filtro... valor actual</code>.</li>
+                        <li>Usar panel de Ordenar para múltiples condiciones, controlar manejo de NULL.</li>
+                        <li>Los filtros con nombre pueden guardarse y recordarse.</li>
+                        <li>Entrada manual de cláusula WHERE soportada.</li>
+                        <li>Icono de embudo rojo = filtro activo.</li>
+                    </ul>
+                </li>
+                <li><strong>Gestión de Columnas:</strong>
+                    <ul>
+                        <li>Arrastrar encabezado para reordenar/ocultar (símbolo <code>X</code>).</li>
+                        <li>Clic derecho > Restablecer columnas.</li>
+                        <li>Usar selector de columnas (arriba a la izquierda) para mostrar/ocultar columnas.</li>
+                        <li>Fijar columnas para mantenerlas visibles al desplazarse.</li>
+                    </ul>
+                </li>
+                <li><strong>Agrupación:</strong>
+                    <ul>
+                        <li>Clic derecho en encabezado > Alternar Panel de Grupo.</li>
+                        <li>Arrastrar columnas al panel de grupo para agrupación jerárquica.</li>
+                        <li>Múltiples niveles soportados.</li>
+                    </ul>
+                </li>
+                <li><strong>Campos Calculados:</strong> Seleccionar celdas, hacer clic en botón <code>Sigma</code> para Suma, Promedio, Mín, Máx, Contar (a través de múltiples columnas).</li>
+                <li><strong>Estilos de Cuadrícula:</strong> Aplicar estilos de color visuales (Opciones > Cuadrículas de Datos > Visual): Estándar, Cool, Query Builder, etc.</li>
+                <li><strong>Vista de Registro Único:</strong> Botón de "Libro abierto" para visualización vertical de registro. Navegar con botones de flecha.</li>
+                <li><strong>Exportar/Copiar:</strong>
+                    <ul>
+                        <li>Ctrl+C para copiar celdas seleccionadas.</li>
+                        <li>Clic derecho > Exportar Dataset para múltiples formatos.</li>
+                        <li>Orden/visibilidad de columnas respetado en exportaciones.</li>
+                    </ul>
+                </li>
+                <li><strong>Informes:</strong> Clic derecho > Informe para lanzar asistente de generación de informes.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-8">
+            <h3><span role="img" aria-label="enlace">🔌</span> Conectividad y Exportación de Datos</h3>
+            <ul>
+                <li><strong>EZCONNECT:</strong> Conexión directa a BD sin TNSNames (desde 8i).
+                    <p style="font-size: 8pt; margin: 3px 0;"><code>CONNECT usuario/contraseña@[//]host[:puerto][/nombre_servicio]</code></p>
+                    <p style="font-size: 8pt; margin: 3px 0;">Ejemplo: <code>scott/tiger@//localhost:1521/orcl</code></p>
+                </li>
+                <li><strong>Construir listas WHERE IN:</strong> Arrastrar valores desde cuadrículas de datos al editor para listas automáticas delimitadas por comas con comillas.</li>
+                <li><strong>Exportar Datos a Excel:</strong>
+                    <ul>
+                        <li><strong>Copiar/Pegar:</strong> Ctrl+C / Ctrl+V. Simple, pero sin formato, requiere Excel abierto.</li>
+                        <li><strong>Exportar Dataset (Texto Delimitado):</strong> Rápido para datos grandes (~25 seg para conjuntos grandes), pero no nativo XLS/XLSX.</li>
+                        <li>La exportación respeta el orden/visibilidad de las columnas.</li>
+                    </ul>
+                </li>
+                <li><strong>Consultas Personalizadas:</strong> Generar scripts SQL dinámicos basados en objetos seleccionados.
+                    <ul>
+                        <li>Seleccionar objetos > Clic derecho > Consultas Personalizadas.</li>
+                        <li>Ejemplo: Generar inventario de restricciones para múltiples tablas en 3 pasos.</li>
+                        <li>Crear las tuyas propias o modificar las predeterminadas.</li>
+                        <li>Toad incluye varias preconstruidas (Resumen de Tipo de Restricción, etc.).</li>
+                    </ul>
+                </li>
+                <li><strong>Toad Data Point:</strong> Consultar bases de datos no Oracle (SQL Server, MySQL, DB2, Sybase, PostgreSQL, Teradata). Gratis para usuarios de Toad Suite.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-1">
+            <h3><span role="img" aria-label="teclado">⌨️</span> Atajos de Teclado Esenciales</h3>
+            <h4>Editor - Ejecución:</h4>
+            <ul>
+                <li><code>F9</code> / <code>Ctrl+Enter</code>: Ejecutar sentencia.</li>
+                <li><code>F5</code>: Ejecutar como script.</li>
+                <li><code>Ctrl+F9</code>: Verificar sin ejecutar (solo análisis).</li>
+                <li><code>Ctrl+E</code>: Ejecutar Plan de Explicación.</li>
+                <li><code>F8</code>: Recordar SQL (sentencias anteriores).</li>
+                <li><code>Alt+Arriba/Abajo</code>: Circular por historial SQL.</li>
+            </ul>
+            <h4>Editor - Navegación y Edición:</h4>
+            <ul>
+                <li><code>F2</code>: Alternar editor a pantalla completa.</li>
+                <li><code>F6</code>: Alternar panel Editor/Resultados.</li>
+                <li><code>Ctrl+Alt+Page Up/Down</code>: Navegar pestañas de resultados.</li>
+                <li><code>F4</code>: DESC objeto en cursor.</li>
+                <li><code>Ctrl+.</code>: Mostrar lista de completado de código.</li>
+                <li><code>Ctrl+T</code>: Mostrar lista desplegable de selección.</li>
+                <li><code>Ctrl+F</code>: Buscar texto.</li>
+                <li><code>Ctrl+G</code>: Ir a número de línea.</li>
+                <li><code>Ctrl+R</code>: Buscar y reemplazar.</li>
+                <li><code>F3</code> / <code>Shift+F3</code>: Buscar siguiente/anterior.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-2">
+            <h3><span role="img" aria-label="teclado">⌨️</span> Atajos Continuación</h3>
+            <h4>Editor - Gestión de Código:</h4>
+            <ul>
+                <li><code>Ctrl+B</code>: Comentar bloque.</li>
+                <li><code>Ctrl+Shift+B</code>: Descomentar bloque.</li>
+                <li><code>Ctrl+M</code>: Hacer sentencia de código.</li>
+                <li><code>Ctrl+P</code>: Deshacer sentencia de código.</li>
+                <li><code>Ctrl+N</code>: Nombrar SQL actual para recordar después.</li>
+                <li><code>Ctrl+F12</code>: Enviar a editor externo.</li>
+            </ul>
+            <h4>Depuración:</h4>
+            <ul>
+                <li><code>Shift+F5</code>: Establecer/eliminar punto de interrupción.</li>
+                <li><code>F11</code>: Ejecutar (continuar ejecución).</li>
+                <li><code>F12</code>: Ejecutar hasta cursor.</li>
+                <li><code>Shift+F7</code>: Rastrear dentro.</li>
+                <li><code>Shift+F8</code>: Pasar por encima.</li>
+                <li><code>Shift+F10</code>: Rastrear fuera.</li>
+                <li><code>Ctrl+Alt+B</code>: Añadir watch en cursor.</li>
+                <li><code>Ctrl+F5</code>: Mostrar ventana de Puntos de Interrupción.</li>
+                <li><code>Ctrl+Alt+W</code>: Mostrar ventana de Watches.</li>
+                <li><code>Ctrl+Alt+C</code>: Mostrar Pila de Llamadas.</li>
+                <li><code>Ctrl+Alt+E</code>: Mostrar Evaluar/Modificar.</li>
+                <li><code>Ctrl+Alt+D</code>: Mostrar Salida DBMS.</li>
+                <li><code>Shift+Ctrl+F9</code>: Establecer parámetros.</li>
+            </ul>
+            <h4>Navegación General:</h4>
+            <ul>
+                <li><code>F1</code>: Abrir documentación de Toad.</li>
+                <li><code>F10</code>: Mostrar menú de clic derecho.</li>
+                <li><code>Ctrl+D</code>: Abrir ventana de Descripción Rápida.</li>
+                <li><code>Ctrl+Tab</code>: Circular entre ventanas hijas.</li>
+                <li><code>Ctrl+J</code>: Saltar a.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-6">
+            <h3><span role="img" aria-label="bolsa de dinero">💰</span> Ediciones Professional y Xpert</h3>
+            <h4>Edición Professional:</h4>
+            <ul>
+                <li><strong>Generar Datos de Prueba:</strong> Seleccionar una o más tablas, generación automática que respeta FKs, crea datos realistas (nombres, direcciones, etc.).</li>
+                <li><strong>Análisis de Código:</strong> Revisión automática de código SQL/PL/SQL, asesor de mejores prácticas, generación automática de documentación.</li>
+                <li><strong>Suite de Pruebas:</strong>
+                    <ul>
+                        <li><strong>Code Tester:</strong> Generar pruebas funcionales sin escribir PL/SQL. Ejecutar para probar característica.</li>
+                        <li><strong>Benchmark Factory:</strong> Pruebas de carga de procedimientos. Clic derecho > Enviar a Code Tester para pruebas de rendimiento.</li>
+                        <li>Pruebas unitarias, pruebas de regresión.</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Edición Xpert (SQL Optimizer):</h4>
+            <ul>
+                <li><strong>Optimización SQL:</strong> Identificar SQL problemático, auto-ajustar sentencias, sugerir índices.</li>
+                <li><strong>Optimizar SQL Actual:</strong> Desde Editor, hacer clic en botón "Auto Optimizar SQL". Elegir OLTP/Warehouse, establecer profundidad de búsqueda.</li>
+                <li><strong>Optimización SQL Avanzada:</strong> Laboratorio de ajuste completo. Escenarios de Reescritura e Índice.
+                    <ul>
+                        <li><strong>Optimizar:</strong> Auto-reescribir + ejecutar (consultas rápidas).</li>
+                        <li><strong>Reescribir:</strong> Generar alternativas, evaluar planes manualmente (consultas largas).</li>
+                        <li><strong>Índice:</strong> Crear índices virtuales, probar antes de creación física.</li>
+                        <li><strong>Reescribir e Índice:</strong> Ambos escenarios.</li>
+                    </ul>
+                </li>
+                <li><strong>Comparar Escenarios:</strong> Ver diferencias de sintaxis SQL y plan de ejecución lado a lado.</li>
+                <li><strong>Optimizar Índices:</strong> Analizar carga de trabajo SQL (AWR, Foglight, SGA, código fuente). Recomendar conjunto de índices óptimo.</li>
+                <li><strong>Análisis de Impacto:</strong> Modelar cambios (nuevos índices), ver efecto en todo el SQL existente antes de implementación.</li>
+                <li><strong>Control de Plan (11g+):</strong> Desplegar mejores planes (SQL Plan Baselines) sin cambios en aplicación. Probar más de 60 planes de ejecución, desplegar el mejor.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-5">
+            <h3><span role="img" aria-label="diagrama de flujo">🔗</span> Utilidades de Base de Datos y Modelado</h3>
+            <ul>
+                <li><strong>Diagrama ER:</strong> Generar relaciones visuales de BD.
+                    <ul>
+                        <li>Seleccionar objetos en Schema Browser > Clic derecho > Diagrama ER.</li>
+                        <li>Exportar a HTML interactivo (WYSIWYG).</li>
+                        <li>Basado en restricciones de clave foránea.</li>
+                        <li>Usar Toad Data Modeler (gratis para usuarios con licencia) para más funciones.</li>
+                        <li><strong>Inferir Relaciones:</strong> En Data Modeler, adivinar relaciones desde nombres de columna comunes.</li>
+                    </ul>
+                </li>
+                <li><strong>Code Road Map:</strong> Análisis de dependencias PL/SQL.
+                    <ul>
+                        <li>Clic derecho en trigger/procedimiento/función/paquete/vista > Code Road Map.</li>
+                        <li>Analiza código fuente, identifica objetos dependientes.</li>
+                        <li>Exportar a informe HTML.</li>
+                        <li><strong>Crear Script:</strong> Generar DDL para construir entorno sandbox con todas las dependencias.</li>
+                    </ul>
+                </li>
+                <li><strong>Query Builder:</strong> Construir consultas SQL complejas visualmente.
+                    <ul>
+                        <li>Arrastrar y soltar tablas/columnas desde Paleta de Objetos.</li>
+                        <li>Detectar uniones automáticamente (desde FKs).</li>
+                        <li>Doble clic en enlace de unión para ver/modificar condiciones.</li>
+                        <li>Añadir cláusulas WHERE con selector de valores para fechas.</li>
+                        <li>Clic derecho en columnas para incluir en SELECT o WHERE.</li>
+                        <li>Ejecutar (F9), ver Plan de Explicación.</li>
+                        <li>Ingeniería inversa: Enviar consulta existente a Query Builder.</li>
+                        <li>Soporta sintaxis de unión ANSI.</li>
+                    </ul>
+                </li>
+                <li><strong>Jump Search (v12.0+):</strong> Buscar en todas las ventanas, menús y opciones de Toad. Navegar por la interfaz rápidamente.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-7">
+            <h3><span role="img" aria-label="llave inglesa">🛠️</span> Módulo de Administración de BD</h3>
+            <ul>
+                <li><strong>Health Check:</strong> Revisión completa de BD para instancias.
+                    <ul>
+                        <li>Identifica ORA-600s, objetos no analizados, sinónimos a objetos inexistentes.</li>
+                        <li>16 comprobaciones para Oracle RAC, 11 comprobaciones para entornos de producción/virtualizados.</li>
+                        <li>Programar comprobaciones, enviar resultados por correo automáticamente.</li>
+                        <li>Crear múltiples tipos de comprobación para diferentes instancias/días.</li>
+                    </ul>
+                </li>
+                <li><strong>Database Browser:</strong> Gestión efectiva de instancias.
+                    <ul>
+                        <li>Conectar a múltiples bases de datos, ver parámetros lado a lado.</li>
+                        <li>Gestionar usuarios, roles, tablespaces, privilegios del sistema.</li>
+                        <li>Iniciar/apagar instancias.</li>
+                        <li>Integración con RMAN para backups.</li>
+                        <li>Profundizar en objetos como Schema Browser.</li>
+                    </ul>
+                </li>
+                <li><strong>Statspack Browser:</strong> Analizar actividad de BD a lo largo del tiempo.
+                    <ul>
+                        <li>Ver lecturas/escrituras por tablespace en las últimas 24 horas.</li>
+                        <li>Análisis de sesiones principales.</li>
+                        <li>Gráficos visuales (zoom, resaltar, exportar a Excel).</li>
+                        <li><strong>¿Paquete de Diagnóstico con Licencia?</strong> Acceso a informes AWR/ASH/ADDM.</li>
+                        <li>Gestionar trabajos de recopilación de Statspack y snapshots.</li>
+                    </ul>
+                </li>
+                <li><strong>Trace File Browser:</strong> Inspeccionar archivos de rastreo visualmente sin TKprof.
+                    <ul>
+                        <li>Ver todas las consultas con binds, esperas, perfiles de rendimiento.</li>
+                        <li>Ver tiempos de Ejecución vs. Análisis vs. Fetch vs. Espera.</li>
+                        <li>Hacer clic en consulta para ver valores de variables bind.</li>
+                        <li>Gráfico mostrando cuenta de consultas por período de tiempo.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Creado con &hearts; por Claude Code 🤖 y Manu</p>
+    </footer>
+</body>
+</html>

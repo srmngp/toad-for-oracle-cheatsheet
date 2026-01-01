@@ -69,6 +69,28 @@ body {
     font-size: 13.5px;
 }
 
+.language-selector {
+    text-align: right;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+}
+
+.language-selector a {
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: color 0.2s ease;
+}
+
+.language-selector a:hover {
+    text-decoration: underline;
+}
+
+.language-selector a.active {
+    font-weight: bold;
+    color: var(--color-text);
+}
+
 .page-header {
     display: flex;
     align-items: center;
@@ -239,7 +261,7 @@ code:hover {
     }
 
     /* Remove Screen-Only Elements */
-    footer {
+    footer, .language-selector {
         display: none;
     }
 
@@ -357,6 +379,12 @@ code:hover {
         max-width: 100%;
         font-size: 14px;
         line-height: 1.6;
+    }
+
+    .language-selector {
+        text-align: center;
+        padding: var(--spacing-sm);
+        font-size: 0.9rem;
     }
 
     .page-header {
