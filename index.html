@@ -3,112 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toad for Oracle®: Essential Tips & Tricks Cheat Sheet</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 10mm auto; /* Simulate A4 margins for printing */
-            padding: 0;
-            max-width: 210mm; /* A4 width */
-            box-sizing: border-box;
-            background-color: #f8f8f8;
-            color: #333;
-            line-height: 1.2;
-            font-size: 9.5pt; /* Adjusted for A4 fit */
-        }
-        h1 {
-            text-align: center;
-            color: #005696; /* Dell blue */
-            font-size: 18pt;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        h2 {
-            color: #005696;
-            font-size: 14pt;
-            margin-top: 15px;
-            margin-bottom: 8px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-        }
-        h3 {
-            color: #005696;
-            font-size: 11pt;
-            margin-top: 10px;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .section-box {
-            padding: 8px 12px;
-            margin-bottom: 8px;
-            border-radius: 6px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            height: fit-content; /* Adjust height based on content */
-        }
-        ul {
-            list-style-type: disc;
-            margin-left: 15px;
-            padding-left: 0;
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
-        li {
-            margin-bottom: 3px;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap; /* Allows boxes to wrap to next line */
-            gap: 8px; /* Space between boxes */
-            justify-content: space-between; /* Distribute space */
-        }
-        .box-item {
-            flex: 1 1 calc(50% - 4px); /* Two columns, considering gap */
-            min-width: 45%; /* Ensure they don't get too small */
-            box-sizing: border-box;
-        }
-        .box-item:last-child:nth-child(odd) {
-             /* If there's an odd number of items and the last one is alone, make it full width */
-            flex: 1 1 100%;
-        }
-        p {
-            margin: 3px 0;
-        }
-        code {
-            background-color: #f0f0f0;
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-family: 'Consolas', 'Courier New', monospace;
-            font-size: 8.5pt;
-        }
-        strong {
-            color: #005696;
-        }
-        h4 {
-            font-size: 10pt;
-            margin: 8px 0 4px 0;
-            color: #005696;
-            border-bottom: 1px dotted #ccc;
-            padding-bottom: 2px;
-        }
-
-        /* Color palette for sections */
-        .color-1 { background-color: #e0f2f7; } /* Light Blue */
-        .color-2 { background-color: #fff3e0; } /* Light Orange */
-        .color-3 { background-color: #e8f5e9; } /* Light Green */
-        .color-4 { background-color: #fbe9e7; } /* Light Red/Coral */
-        .color-5 { background-color: #f3e5f5; } /* Light Purple */
-        .color-6 { background-color: #ffebee; } /* Light Pink */
-        .color-7 { background-color: #e1f5fe; } /* Lighter Blue */
-        .color-8 { background-color: #fcf4e3; } /* Creamy Yellow */
-    </style>
-    <script type="text/javascript" id="MathJax-script" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <title>Toad for Oracle: Essential Tips & Tricks Cheat Sheet</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Toad for Oracle®: Essential Tips & Tricks Cheat Sheet</h1>
+    <header class="page-header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Toad-Original_RGB.png/960px-Toad-Original_RGB.png" alt="Toad for Oracle Logo" class="toad-logo">
+        <h1>Toad for Oracle: Essential Tips & Tricks Cheat Sheet</h1>
+    </header>
 
     <div class="container">
         <div class="section-box box-item color-1">
@@ -445,8 +347,8 @@
         </div>
     </div>
 
-    <footer style="text-align: center; margin-top: 20px; padding: 15px; font-size: 9pt; color: #666; border-top: 1px solid #ddd;">
-        <p>Created with &hearts; by Manu and Claude Code 🤖</p>
+    <footer>
+        <p>Created with &hearts; by Claude Code 🤖 & Manu</p>
     </footer>
 </body>
 </html>

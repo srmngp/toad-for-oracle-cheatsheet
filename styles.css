@@ -1,0 +1,482 @@
+/* ============================================
+   CSS Custom Properties - Design System
+   ============================================ */
+:root {
+    /* Color System */
+    --color-primary: #005696;        /* Dell blue */
+    --color-text: #333;
+    --color-text-light: #666;
+    --color-background: #f8f8f8;
+    --color-border: #ddd;
+    --color-border-light: #ccc;
+
+    /* Code styling */
+    --color-code-bg: #e8e8e8;
+    --color-code-text: #1a1a1a;
+    --color-code-border: #d0d0d0;
+
+    /* Section colors (pastel palette) */
+    --color-section-1: #e0f2f7;     /* Light Blue */
+    --color-section-2: #fff3e0;     /* Light Orange */
+    --color-section-3: #e8f5e9;     /* Light Green */
+    --color-section-4: #fbe9e7;     /* Light Red/Coral */
+    --color-section-5: #f3e5f5;     /* Light Purple */
+    --color-section-6: #ffebee;     /* Light Pink */
+    --color-section-7: #e1f5fe;     /* Lighter Blue */
+    --color-section-8: #fcf4e3;     /* Creamy Yellow */
+
+    /* Spacing System */
+    --spacing-xs: 0.25rem;          /* 4px */
+    --spacing-sm: 0.5rem;           /* 8px */
+    --spacing-md: 0.75rem;          /* 12px */
+    --spacing-lg: 1rem;             /* 16px */
+    --spacing-xl: 1.25rem;          /* 20px */
+
+    /* Typography Scale (rem-based) */
+    --font-size-xs: 0.7rem;         /* ~9.5px */
+    --font-size-sm: 0.85rem;        /* ~11.5px */
+    --font-size-md: 1rem;           /* ~13.5px */
+    --font-size-lg: 1.2rem;         /* ~16px */
+    --font-size-xl: 1.5rem;         /* ~20px */
+
+    /* Line heights */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.7;
+
+    /* Layout */
+    --page-width: 210mm;
+    --page-margin: 10mm;
+    --container-gap: 8px;
+    --box-radius: 6px;
+    --max-content-width: 1100px;
+
+    /* Shadows */
+    --shadow-light: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-medium: 0 3px 8px rgba(0,0,0,0.15);
+    --shadow-none: none;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: var(--page-margin) auto;
+    padding: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: var(--line-height-normal);
+    font-size: 13.5px;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.toad-logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+h1 {
+    text-align: center;
+    color: var(--color-primary);
+    font-size: var(--font-size-xl);
+    margin: 0;
+    text-transform: uppercase;
+}
+h2 {
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 6px;
+    font-weight: 700;
+}
+h3 {
+    color: var(--color-primary);
+    font-size: var(--font-size-md);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: 600;
+}
+.section-box {
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    border-radius: var(--box-radius);
+    box-shadow: var(--shadow-light);
+    height: fit-content;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+ul {
+    list-style-type: disc;
+    margin-left: 15px;
+    padding-left: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+li {
+    margin-bottom: 3px;
+}
+.container {
+    column-count: 2;
+    column-gap: var(--container-gap);
+}
+.box-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}
+p {
+    margin: 3px 0;
+}
+code {
+    background-color: var(--color-code-bg);
+    color: var(--color-code-text);
+    padding: 3px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--color-code-border);
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: var(--font-size-xs);
+}
+strong {
+    color: var(--color-primary);
+}
+h4 {
+    font-size: var(--font-size-sm);
+    margin: var(--spacing-md) 0 var(--spacing-xs) 0;
+    color: var(--color-primary);
+    border-bottom: 1px dotted var(--color-border-light);
+    padding-bottom: 3px;
+    font-weight: 600;
+}
+
+/* Color palette for sections */
+.color-1 { background-color: var(--color-section-1); }
+.color-2 { background-color: var(--color-section-2); }
+.color-3 { background-color: var(--color-section-3); }
+.color-4 { background-color: var(--color-section-4); }
+.color-5 { background-color: var(--color-section-5); }
+.color-6 { background-color: var(--color-section-6); }
+.color-7 { background-color: var(--color-section-7); }
+.color-8 { background-color: var(--color-section-8); }
+
+/* Footer styling */
+footer {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-light);
+}
+
+footer p {
+    margin: var(--spacing-xs) 0;
+}
+
+/* ============================================
+   INTERACTIVE STATES - Hover & Focus
+   ============================================ */
+
+/* Section box hover effect */
+.section-box:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+/* Code hover effect */
+code:hover {
+    background-color: #d8d8d8;
+    border-color: #b0b0b0;
+}
+
+/* Accessible focus states */
+*:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   PRINT STYLES - Optimized for Paper Output
+   ============================================ */
+@media print {
+    /* Page Setup */
+    @page {
+        size: A4 portrait;
+        margin: 15mm 10mm;
+    }
+
+    /* Reset for Print */
+    body {
+        background-color: white !important;
+        color: black !important;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 9pt;
+        line-height: 1.4;
+    }
+
+    /* Remove Screen-Only Elements */
+    footer {
+        display: none;
+    }
+
+    /* Header for print */
+    .page-header {
+        margin-bottom: 8px !important;
+    }
+
+    .toad-logo {
+        height: 40px !important;
+    }
+
+    /* Ink-Efficient Section Boxes */
+    .section-box {
+        background-color: white !important;
+        border: 1px solid #999 !important;
+        box-shadow: none !important;
+        padding: 8px 10px !important;
+        margin-bottom: 6px !important;
+        page-break-inside: avoid;
+    }
+
+    /* Heading Adjustments */
+    h1 {
+        color: black !important;
+        font-size: 16pt !important;
+        margin-bottom: 10px !important;
+        page-break-after: avoid;
+        border-bottom: 2px solid black;
+        padding-bottom: 5px;
+    }
+
+    h2 {
+        color: black !important;
+        font-size: 12pt !important;
+        margin-top: 8px !important;
+        page-break-after: avoid;
+        border-bottom: 1px solid #666;
+    }
+
+    h3 {
+        color: black !important;
+        font-size: 10pt !important;
+        margin-top: 6px !important;
+        page-break-after: avoid;
+    }
+
+    h4 {
+        color: black !important;
+        font-size: 9pt !important;
+        margin: 6px 0 3px 0 !important;
+        border-bottom: 1px dotted #999;
+        page-break-after: avoid;
+    }
+
+    /* Code Styling for Print */
+    code {
+        background-color: #f5f5f5 !important;
+        border: 1px solid #ddd !important;
+        padding: 1px 3px !important;
+        font-size: 8pt !important;
+        color: black !important;
+        page-break-inside: avoid;
+    }
+
+    strong {
+        color: black !important;
+        font-weight: bold;
+    }
+
+    /* List Optimization */
+    ul, ol {
+        margin-top: 3px !important;
+        margin-bottom: 3px !important;
+    }
+
+    li {
+        margin-bottom: 2px !important;
+        page-break-inside: avoid;
+    }
+
+    /* Container Grid for Print */
+    .container {
+        column-count: 2 !important;
+        column-gap: 6px !important;
+        page-break-inside: auto;
+    }
+
+    .box-item {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Ensure Links are Visible */
+    a {
+        color: black !important;
+        text-decoration: underline;
+    }
+
+    /* Emoji Handling */
+    span[role="img"] {
+        font-size: 10pt;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - Mobile First
+   ============================================ */
+
+/* Mobile Devices (< 768px) */
+@media screen and (max-width: 767px) {
+    body {
+        margin: 0;
+        padding: var(--spacing-md);
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .page-header {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .toad-logo {
+        height: 50px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        margin-top: var(--spacing-md);
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        margin-top: var(--spacing-sm);
+    }
+
+    h4 {
+        font-size: 1.05rem;
+    }
+
+    /* Single Column Layout */
+    .container {
+        column-count: 1;
+        column-gap: 0;
+    }
+
+    .box-item {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .section-box {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+        border-radius: 8px;
+    }
+
+    /* Increase touch targets */
+    code {
+        font-size: 0.9rem;
+        padding: 3px 6px;
+        display: inline-block;
+        line-height: 1.4;
+    }
+
+    ul {
+        margin-left: 20px;
+        padding-left: 0;
+    }
+
+    li {
+        margin-bottom: var(--spacing-xs);
+    }
+
+    /* Footer adjustments */
+    footer {
+        font-size: 0.9rem;
+        padding: var(--spacing-md);
+        margin-top: var(--spacing-xl);
+    }
+}
+
+/* Desktop - 2 columns (768px - 1999px) */
+@media screen and (min-width: 768px) and (max-width: 1999px) {
+    body {
+        max-width: min(90%, var(--max-content-width));
+        margin: var(--spacing-lg) auto;
+        padding-left: var(--spacing-xl);
+        padding-right: var(--spacing-xl);
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
+
+    .container {
+        column-count: 2;
+        column-gap: var(--container-gap);
+    }
+
+    .section-box {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+}
+
+/* Large Desktop (>= 2000px) - 3 columns */
+@media screen and (min-width: 2000px) {
+    body {
+        max-width: min(85%, var(--max-content-width));
+        margin: var(--spacing-lg) auto;
+        padding-left: var(--spacing-xl);
+        padding-right: var(--spacing-xl);
+    }
+
+    .container {
+        column-count: 3;
+        column-gap: var(--spacing-lg);
+    }
+
+    .section-box {
+        padding: var(--spacing-lg) var(--spacing-xl);
+    }
+}
