@@ -147,115 +147,6 @@
             </ul>
         </div>
 
-        <div class="section-box box-item color-5">
-            <h3><span role="img" aria-label="flowchart">🔗</span> Database Utilities & Modeling</h3>
-            <ul>
-                <li><strong>ER Diagram:</strong> Generate visual DB relationships.
-                    <ul>
-                        <li>Select objects in Schema Browser > Right-click > ER Diagram.</li>
-                        <li>Export to interactive HTML (WYSIWYG).</li>
-                        <li>Based on foreign key constraints.</li>
-                        <li>Use Toad Data Modeler (free for licensed users) for more features.</li>
-                        <li><strong>Infer Relationships:</strong> In Data Modeler, guess relationships from common column names.</li>
-                    </ul>
-                </li>
-                <li><strong>Code Road Map:</strong> PL/SQL dependency analysis.
-                    <ul>
-                        <li>Right-click on trigger/procedure/function/package/view > Code Road Map.</li>
-                        <li>Parses source code, identifies dependent objects.</li>
-                        <li>Export to HTML report.</li>
-                        <li><strong>Create Script:</strong> Generate DDL to build sandbox environment with all dependencies.</li>
-                    </ul>
-                </li>
-                <li><strong>Query Builder:</strong> Visually build complex SQL queries.
-                    <ul>
-                        <li>Drag & Drop tables/columns from Object Palette.</li>
-                        <li>Auto-detect joins (from FKs).</li>
-                        <li>Double-click join link to view/modify conditions.</li>
-                        <li>Add WHERE clauses with value picker for dates.</li>
-                        <li>Right-click columns to include in SELECT or WHERE.</li>
-                        <li>Execute (F9), view Explain Plan.</li>
-                        <li>Reverse-engineer: Send existing query to Query Builder.</li>
-                        <li>Supports ANSI join syntax.</li>
-                    </ul>
-                </li>
-                <li><strong>Jump Search (v12.0+):</strong> Search all Toad windows, menus, and options. Navigate UI quickly.</li>
-            </ul>
-        </div>
-
-        <div class="section-box box-item color-6">
-            <h3><span role="img" aria-label="money bag">💰</span> Professional & Xpert Editions</h3>
-            <h4>Professional Edition:</h4>
-            <ul>
-                <li><strong>Generate Test Data:</strong> Select one+ tables, automatic generation respects FKs, creates real-looking data (names, addresses, etc.).</li>
-                <li><strong>Code Analysis:</strong> Automated SQL/PL/SQL code review, best practices advisor, automatic documentation generation.</li>
-                <li><strong>Testing Suite:</strong>
-                    <ul>
-                        <li><strong>Code Tester:</strong> Generate functional tests without writing PL/SQL. Run to test feature.</li>
-                        <li><strong>Benchmark Factory:</strong> Load test procedures. Right-click > Send to Code Tester for performance testing.</li>
-                        <li>Unit testing, regression testing.</li>
-                    </ul>
-                </li>
-            </ul>
-            <h4>Xpert Edition (SQL Optimizer):</h4>
-            <ul>
-                <li><strong>SQL Optimization:</strong> Identify problematic SQL, auto-tune statements, suggest indexes.</li>
-                <li><strong>Optimize Current SQL:</strong> From Editor, click "Auto Optimize SQL" button. Choose OLTP/Warehouse, set search depth.</li>
-                <li><strong>Advanced SQL Optimization:</strong> Full tuning lab. Rewrite & Index scenarios.
-                    <ul>
-                        <li><strong>Optimize:</strong> Auto-rewrite + execute (fast queries).</li>
-                        <li><strong>Rewrite:</strong> Generate alternatives, evaluate plans manually (long queries).</li>
-                        <li><strong>Index:</strong> Create virtual indexes, test before physical creation.</li>
-                        <li><strong>Rewrite & Index:</strong> Both scenarios.</li>
-                    </ul>
-                </li>
-                <li><strong>Compare Scenarios:</strong> View SQL syntax & execution plan differences side-by-side.</li>
-                <li><strong>Optimize Indexes:</strong> Analyze SQL workload (AWR, Foglight, SGA, source code). Recommend optimal index set.</li>
-                <li><strong>Impact Analysis:</strong> Model changes (new indexes), see effect on all existing SQL before implementation.</li>
-                <li><strong>Plan Control (11g+):</strong> Deploy better plans (SQL Plan Baselines) without app changes. Test 60+ execution plans, deploy best.</li>
-            </ul>
-        </div>
-
-        <div class="section-box box-item color-7">
-            <h3><span role="img" aria-label="wrench">🛠️</span> DB Admin Module</h3>
-            <ul>
-                <li><strong>Health Check:</strong> Comprehensive DB checkup for instances.
-                    <ul>
-                        <li>Identifies ORA-600s, unanalyzed objects, synonyms to non-existent objects.</li>
-                        <li>16 checks for Oracle RAC, 11 checks for production/virtualized environments.</li>
-                        <li>Schedule checks, email results automatically.</li>
-                        <li>Create multiple check types for different instances/days.</li>
-                    </ul>
-                </li>
-                <li><strong>Database Browser:</strong> Effective instance management.
-                    <ul>
-                        <li>Connect to multiple databases, see parameters side-by-side.</li>
-                        <li>Manage users, roles, tablespaces, system privileges.</li>
-                        <li>Startup/shutdown instances.</li>
-                        <li>RMAN integration for backups.</li>
-                        <li>Drill down into objects like Schema Browser.</li>
-                    </ul>
-                </li>
-                <li><strong>Statspack Browser:</strong> Analyze DB activity over time.
-                    <ul>
-                        <li>View reads/writes by tablespace over last 24 hours.</li>
-                        <li>Top sessions analysis.</li>
-                        <li>Visual charts (zoom, highlight, export to Excel).</li>
-                        <li><strong>Licensed Diagnostic Pack?</strong> Access AWR/ASH/ADDM reports.</li>
-                        <li>Manage Statspack collection jobs and snapshots.</li>
-                    </ul>
-                </li>
-                <li><strong>Trace File Browser:</strong> Visually inspect trace files without TKprof.
-                    <ul>
-                        <li>See all queries with binds, waits, performance profiles.</li>
-                        <li>View Execution vs. Parse vs. Fetch vs. Wait times.</li>
-                        <li>Click query to see bind variable values.</li>
-                        <li>Chart showing query count by time period.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
         <div class="section-box box-item color-8">
             <h3><span role="img" aria-label="link">🔌</span> Connectivity & Data Export</h3>
             <ul>
@@ -343,6 +234,115 @@
                 <li><code>Ctrl+D</code>: Open Quick Describe window.</li>
                 <li><code>Ctrl+Tab</code>: Cycle through child windows.</li>
                 <li><code>Ctrl+J</code>: Jump to.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-6">
+            <h3><span role="img" aria-label="money bag">💰</span> Professional & Xpert Editions</h3>
+            <h4>Professional Edition:</h4>
+            <ul>
+                <li><strong>Generate Test Data:</strong> Select one+ tables, automatic generation respects FKs, creates real-looking data (names, addresses, etc.).</li>
+                <li><strong>Code Analysis:</strong> Automated SQL/PL/SQL code review, best practices advisor, automatic documentation generation.</li>
+                <li><strong>Testing Suite:</strong>
+                    <ul>
+                        <li><strong>Code Tester:</strong> Generate functional tests without writing PL/SQL. Run to test feature.</li>
+                        <li><strong>Benchmark Factory:</strong> Load test procedures. Right-click > Send to Code Tester for performance testing.</li>
+                        <li>Unit testing, regression testing.</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Xpert Edition (SQL Optimizer):</h4>
+            <ul>
+                <li><strong>SQL Optimization:</strong> Identify problematic SQL, auto-tune statements, suggest indexes.</li>
+                <li><strong>Optimize Current SQL:</strong> From Editor, click "Auto Optimize SQL" button. Choose OLTP/Warehouse, set search depth.</li>
+                <li><strong>Advanced SQL Optimization:</strong> Full tuning lab. Rewrite & Index scenarios.
+                    <ul>
+                        <li><strong>Optimize:</strong> Auto-rewrite + execute (fast queries).</li>
+                        <li><strong>Rewrite:</strong> Generate alternatives, evaluate plans manually (long queries).</li>
+                        <li><strong>Index:</strong> Create virtual indexes, test before physical creation.</li>
+                        <li><strong>Rewrite & Index:</strong> Both scenarios.</li>
+                    </ul>
+                </li>
+                <li><strong>Compare Scenarios:</strong> View SQL syntax & execution plan differences side-by-side.</li>
+                <li><strong>Optimize Indexes:</strong> Analyze SQL workload (AWR, Foglight, SGA, source code). Recommend optimal index set.</li>
+                <li><strong>Impact Analysis:</strong> Model changes (new indexes), see effect on all existing SQL before implementation.</li>
+                <li><strong>Plan Control (11g+):</strong> Deploy better plans (SQL Plan Baselines) without app changes. Test 60+ execution plans, deploy best.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-5">
+            <h3><span role="img" aria-label="flowchart">🔗</span> Database Utilities & Modeling</h3>
+            <ul>
+                <li><strong>ER Diagram:</strong> Generate visual DB relationships.
+                    <ul>
+                        <li>Select objects in Schema Browser > Right-click > ER Diagram.</li>
+                        <li>Export to interactive HTML (WYSIWYG).</li>
+                        <li>Based on foreign key constraints.</li>
+                        <li>Use Toad Data Modeler (free for licensed users) for more features.</li>
+                        <li><strong>Infer Relationships:</strong> In Data Modeler, guess relationships from common column names.</li>
+                    </ul>
+                </li>
+                <li><strong>Code Road Map:</strong> PL/SQL dependency analysis.
+                    <ul>
+                        <li>Right-click on trigger/procedure/function/package/view > Code Road Map.</li>
+                        <li>Parses source code, identifies dependent objects.</li>
+                        <li>Export to HTML report.</li>
+                        <li><strong>Create Script:</strong> Generate DDL to build sandbox environment with all dependencies.</li>
+                    </ul>
+                </li>
+                <li><strong>Query Builder:</strong> Visually build complex SQL queries.
+                    <ul>
+                        <li>Drag & Drop tables/columns from Object Palette.</li>
+                        <li>Auto-detect joins (from FKs).</li>
+                        <li>Double-click join link to view/modify conditions.</li>
+                        <li>Add WHERE clauses with value picker for dates.</li>
+                        <li>Right-click columns to include in SELECT or WHERE.</li>
+                        <li>Execute (F9), view Explain Plan.</li>
+                        <li>Reverse-engineer: Send existing query to Query Builder.</li>
+                        <li>Supports ANSI join syntax.</li>
+                    </ul>
+                </li>
+                <li><strong>Jump Search (v12.0+):</strong> Search all Toad windows, menus, and options. Navigate UI quickly.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-7">
+            <h3><span role="img" aria-label="wrench">🛠️</span> DB Admin Module</h3>
+            <ul>
+                <li><strong>Health Check:</strong> Comprehensive DB checkup for instances.
+                    <ul>
+                        <li>Identifies ORA-600s, unanalyzed objects, synonyms to non-existent objects.</li>
+                        <li>16 checks for Oracle RAC, 11 checks for production/virtualized environments.</li>
+                        <li>Schedule checks, email results automatically.</li>
+                        <li>Create multiple check types for different instances/days.</li>
+                    </ul>
+                </li>
+                <li><strong>Database Browser:</strong> Effective instance management.
+                    <ul>
+                        <li>Connect to multiple databases, see parameters side-by-side.</li>
+                        <li>Manage users, roles, tablespaces, system privileges.</li>
+                        <li>Startup/shutdown instances.</li>
+                        <li>RMAN integration for backups.</li>
+                        <li>Drill down into objects like Schema Browser.</li>
+                    </ul>
+                </li>
+                <li><strong>Statspack Browser:</strong> Analyze DB activity over time.
+                    <ul>
+                        <li>View reads/writes by tablespace over last 24 hours.</li>
+                        <li>Top sessions analysis.</li>
+                        <li>Visual charts (zoom, highlight, export to Excel).</li>
+                        <li><strong>Licensed Diagnostic Pack?</strong> Access AWR/ASH/ADDM reports.</li>
+                        <li>Manage Statspack collection jobs and snapshots.</li>
+                    </ul>
+                </li>
+                <li><strong>Trace File Browser:</strong> Visually inspect trace files without TKprof.
+                    <ul>
+                        <li>See all queries with binds, waits, performance profiles.</li>
+                        <li>View Execution vs. Parse vs. Fetch vs. Wait times.</li>
+                        <li>Click query to see bind variable values.</li>
+                        <li>Chart showing query count by time period.</li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
