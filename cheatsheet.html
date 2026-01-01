@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toad for Oracle®: Essential Tips & Tricks Cheat Sheet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 10mm auto; /* Simulate A4 margins for printing */
+            padding: 0;
+            max-width: 210mm; /* A4 width */
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.2;
+            font-size: 9.5pt; /* Adjusted for A4 fit */
+        }
+        h1 {
+            text-align: center;
+            color: #005696; /* Dell blue */
+            font-size: 18pt;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        h2 {
+            color: #005696;
+            font-size: 14pt;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #005696;
+            font-size: 11pt;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .section-box {
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            height: fit-content; /* Adjust height based on content */
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 15px;
+            padding-left: 0;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        li {
+            margin-bottom: 3px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Allows boxes to wrap to next line */
+            gap: 8px; /* Space between boxes */
+            justify-content: space-between; /* Distribute space */
+        }
+        .box-item {
+            flex: 1 1 calc(50% - 4px); /* Two columns, considering gap */
+            min-width: 45%; /* Ensure they don't get too small */
+            box-sizing: border-box;
+        }
+        .box-item:last-child:nth-child(odd) {
+             /* If there's an odd number of items and the last one is alone, make it full width */
+            flex: 1 1 100%;
+        }
+        p {
+            margin: 3px 0;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 8.5pt;
+        }
+        strong {
+            color: #005696;
+        }
+        h4 {
+            font-size: 10pt;
+            margin: 8px 0 4px 0;
+            color: #005696;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 2px;
+        }
+
+        /* Color palette for sections */
+        .color-1 { background-color: #e0f2f7; } /* Light Blue */
+        .color-2 { background-color: #fff3e0; } /* Light Orange */
+        .color-3 { background-color: #e8f5e9; } /* Light Green */
+        .color-4 { background-color: #fbe9e7; } /* Light Red/Coral */
+        .color-5 { background-color: #f3e5f5; } /* Light Purple */
+        .color-6 { background-color: #ffebee; } /* Light Pink */
+        .color-7 { background-color: #e1f5fe; } /* Lighter Blue */
+        .color-8 { background-color: #fcf4e3; } /* Creamy Yellow */
+    </style>
+    <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+    <h1>Toad for Oracle®: Essential Tips & Tricks Cheat Sheet</h1>
+
+    <div class="container">
+        <div class="section-box box-item color-1">
+            <h3><span role="img" aria-label="magnifying glass">🔍</span> Toad Basics & Navigation</h3>
+            <ul>
+                <li><strong>Schema Browser:</strong> Gateway to DB objects.
+                    <ul>
+                        <li><strong>Display:</strong> Treeview, Dropdown, Tabbed.</li>
+                        <li><strong>Filtering:</strong> Quick filter (e.g., <code>C*; D*</code>), Project filters.</li>
+                        <li><strong>Organize:</strong> Favorites, Project Manager (Add objects via right-click or drag/drop).</li>
+                        <li><strong>Actions:</strong> Right-click for >35 DB operations.</li>
+                        <li><strong>Load Schemas:</strong> Right-click schema > Load only schemas that own objects.</li>
+                    </ul>
+                </li>
+                <li><strong>Navigation:</strong>
+                    <ul>
+                        <li><code>Ctrl+J</code> for Jump to.</li>
+                        <li>Back/Forward buttons for browsing history.</li>
+                        <li><code>Ctrl+Tab</code> to cycle through child windows/tabs.</li>
+                    </ul>
+                </li>
+                <li><strong>Multi-Select:</strong> Select multiple objects then right-click for batch operations.</li>
+                <li><strong>Context Matters:</strong> Where you right-click determines menu options (grids, toolbars, headers).</li>
+                <li><strong>Additional Details:</strong> Right-click column header to add Num Rows, Last Analyzed, etc.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-2">
+            <h3><span role="img" aria-label="keyboard">⌨️</span> SQL & PL/SQL Editor</h3>
+            <ul>
+                <li><strong>Single Editor:</strong> For SQL, PL/SQL, anonymous blocks, SQL*Plus, RMAN, Java stored procedures.</li>
+                <li><strong>Code Templates:</strong> Type <code>anon</code> then <code>&lt;Ctrl+Spacebar&gt;</code> (dynamic with <code>&amp;</code>). Empty cursor shows all templates.</li>
+                <li><strong>Code Insight:</strong> Auto-complete commands & objects (<code>Ctrl+.</code>).
+                    <ul>
+                        <li>Types: Tables, Views, Aliases, Functions, Sequences, Users, Collection types, Synonyms.</li>
+                        <li>Sees variables, parameters, expected tokens (keywords).</li>
+                        <li>Adjust delay in Options > Editor > Code Assist.</li>
+                    </ul>
+                </li>
+                <li><strong>DESC (F4):</strong> View table/view definitions. Can DESC multiple objects, drag columns to editor, modify objects.</li>
+                <li><strong>SQL Recall (F8):</strong> Access last 500 executed statements (<code>Alt+Up/Down</code> to cycle).</li>
+                <li><strong>Named SQL:</strong> <code>Ctrl+N</code> to name statements for easy recall later.</li>
+                <li><strong>Split Editor:</strong> Right-click in editor > Split Editor Layout (Top/Bottom or Left/Right).</li>
+                <li><strong>Format Code:</strong> Right-click > Format Code to beautify SQL/PL/SQL.</li>
+                <li><strong>Make/Strip Code:</strong> <code>Ctrl+M</code> to make code statement (C++, Delphi, Perl, Java, VB, C#), <code>Ctrl+P</code> to strip.</li>
+                <li><strong>Other Keys:</strong>
+                    <ul>
+                        <li><code>Ctrl+F9</code>: Verify statement without execution (parse only).</li>
+                        <li><code>Ctrl+F12</code>: Pass SQL to external editor.</li>
+                        <li><code>Ctrl+E</code>: Execute Explain Plan on current statement.</li>
+                        <li><code>F2</code>: Toggle full screen Editor.</li>
+                        <li><code>F5</code>: Execute as script.</li>
+                        <li><code>F6</code>: Toggle between Editor and Results panel.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-3">
+            <h3><span role="img" aria-label="bug">🐞</span> PL/SQL Debugging & Performance</h3>
+            <ul>
+                <li><strong>Profiler:</strong> Identify execution bottlenecks.
+                    <ul>
+                        <li>Toggle <code>Stopwatch</code> button, then execute PL/SQL.</li>
+                        <li>View visual charts in Profiler tab (Details button).</li>
+                        <li>Supports Oracle 11g+ Hierarchical Profiler.</li>
+                    </ul>
+                </li>
+                <li><strong>Debugger:</strong> Step-by-step code execution.
+                    <ul>
+                        <li><strong>Breakpoints:</strong> <code>Shift+F5</code> set/delete on executable lines (blue dots only).</li>
+                        <li><strong>Conditional Breakpoints:</strong> Double-click break in Breaks panel.</li>
+                        <li><strong>Watches:</strong> View variable values (eyeglasses icon), <code>Ctrl+Alt+B</code> to add watch at cursor.</li>
+                        <li><strong>Smart Watches:</strong> Enable to see all code variables automatically.</li>
+                        <li><strong>Modify:</strong> Change variable values (calculator icon).</li>
+                    </ul>
+                </li>
+                <li><strong>Debugger Shortcuts:</strong>
+                    <ul>
+                        <li><code>F11</code>: Run (continue execution).</li>
+                        <li><code>F12</code>: Run to cursor.</li>
+                        <li><code>Shift+F7</code>: Trace into.</li>
+                        <li><code>Shift+F8</code>: Step over.</li>
+                        <li><code>Shift+F10</code>: Trace out.</li>
+                        <li><code>Ctrl+F5</code>: Display Breakpoints window.</li>
+                        <li><code>Ctrl+Alt+W</code>: Display Watches window.</li>
+                        <li><code>Ctrl+Alt+C</code>: Display Call Stack.</li>
+                        <li><code>Ctrl+Alt+E</code>: Display Evaluate/Modify window.</li>
+                        <li><code>Shift+Ctrl+F9</code>: Set parameters.</li>
+                    </ul>
+                </li>
+                <li><strong>Run SQL in PL/SQL:</strong> <code>Ctrl+Enter</code> on embedded SQL (Toad extracts and prompts for variables).</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-4">
+            <h3><span role="img" aria-label="table">📊</span> Data Grid Mastery</h3>
+            <ul>
+                <li><strong>Sorting/Filtering:</strong>
+                    <ul>
+                        <li>Click cell for <code>Add to filter... current value</code>.</li>
+                        <li>Use Sort panel for multiple conditions, control NULL handling.</li>
+                        <li>Named filters can be saved and recalled.</li>
+                        <li>Manual WHERE clause input supported.</li>
+                        <li>Red funnel icon = filter active.</li>
+                    </ul>
+                </li>
+                <li><strong>Column Management:</strong>
+                    <ul>
+                        <li>Drag header to re-order/hide (<code>X</code> symbol).</li>
+                        <li>Right-click > Reset columns.</li>
+                        <li>Use column selector (top left) to show/hide columns.</li>
+                        <li>Fix columns to keep visible while scrolling.</li>
+                    </ul>
+                </li>
+                <li><strong>Grouping:</strong>
+                    <ul>
+                        <li>Right-click header > Toggle Group Panel.</li>
+                        <li>Drag columns to group panel for hierarchical grouping.</li>
+                        <li>Multiple levels supported.</li>
+                    </ul>
+                </li>
+                <li><strong>Calculated Fields:</strong> Select cells, click <code>Sigma</code> button for Sum, Avg, Min, Max, Count (across multiple columns).</li>
+                <li><strong>Grid Styles:</strong> Apply visual color styles (Options > Data Grids > Visual): Standard, Cool, Query Builder, etc.</li>
+                <li><strong>Single Record View:</strong> "Open book" button for vertical record display. Navigate with arrow buttons.</li>
+                <li><strong>Export/Copy:</strong>
+                    <ul>
+                        <li>Ctrl+C to copy selected cells.</li>
+                        <li>Right-click > Export Dataset for multiple formats.</li>
+                        <li>Column order/visibility respected in exports.</li>
+                    </ul>
+                </li>
+                <li><strong>Reports:</strong> Right-click > Report to launch report generation wizard.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-5">
+            <h3><span role="img" aria-label="flowchart">🔗</span> Database Utilities & Modeling</h3>
+            <ul>
+                <li><strong>ER Diagram:</strong> Generate visual DB relationships.
+                    <ul>
+                        <li>Select objects in Schema Browser > Right-click > ER Diagram.</li>
+                        <li>Export to interactive HTML (WYSIWYG).</li>
+                        <li>Based on foreign key constraints.</li>
+                        <li>Use Toad Data Modeler (free for licensed users) for more features.</li>
+                        <li><strong>Infer Relationships:</strong> In Data Modeler, guess relationships from common column names.</li>
+                    </ul>
+                </li>
+                <li><strong>Code Road Map:</strong> PL/SQL dependency analysis.
+                    <ul>
+                        <li>Right-click on trigger/procedure/function/package/view > Code Road Map.</li>
+                        <li>Parses source code, identifies dependent objects.</li>
+                        <li>Export to HTML report.</li>
+                        <li><strong>Create Script:</strong> Generate DDL to build sandbox environment with all dependencies.</li>
+                    </ul>
+                </li>
+                <li><strong>Query Builder:</strong> Visually build complex SQL queries.
+                    <ul>
+                        <li>Drag & Drop tables/columns from Object Palette.</li>
+                        <li>Auto-detect joins (from FKs).</li>
+                        <li>Double-click join link to view/modify conditions.</li>
+                        <li>Add WHERE clauses with value picker for dates.</li>
+                        <li>Right-click columns to include in SELECT or WHERE.</li>
+                        <li>Execute (F9), view Explain Plan.</li>
+                        <li>Reverse-engineer: Send existing query to Query Builder.</li>
+                        <li>Supports ANSI join syntax.</li>
+                    </ul>
+                </li>
+                <li><strong>Jump Search (v12.0+):</strong> Search all Toad windows, menus, and options. Navigate UI quickly.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-6">
+            <h3><span role="img" aria-label="money bag">💰</span> Professional & Xpert Editions</h3>
+            <h4>Professional Edition:</h4>
+            <ul>
+                <li><strong>Generate Test Data:</strong> Select one+ tables, automatic generation respects FKs, creates real-looking data (names, addresses, etc.).</li>
+                <li><strong>Code Analysis:</strong> Automated SQL/PL/SQL code review, best practices advisor, automatic documentation generation.</li>
+                <li><strong>Testing Suite:</strong>
+                    <ul>
+                        <li><strong>Code Tester:</strong> Generate functional tests without writing PL/SQL. Run to test feature.</li>
+                        <li><strong>Benchmark Factory:</strong> Load test procedures. Right-click > Send to Code Tester for performance testing.</li>
+                        <li>Unit testing, regression testing.</li>
+                    </ul>
+                </li>
+            </ul>
+            <h4>Xpert Edition (SQL Optimizer):</h4>
+            <ul>
+                <li><strong>SQL Optimization:</strong> Identify problematic SQL, auto-tune statements, suggest indexes.</li>
+                <li><strong>Optimize Current SQL:</strong> From Editor, click "Auto Optimize SQL" button. Choose OLTP/Warehouse, set search depth.</li>
+                <li><strong>Advanced SQL Optimization:</strong> Full tuning lab. Rewrite & Index scenarios.
+                    <ul>
+                        <li><strong>Optimize:</strong> Auto-rewrite + execute (fast queries).</li>
+                        <li><strong>Rewrite:</strong> Generate alternatives, evaluate plans manually (long queries).</li>
+                        <li><strong>Index:</strong> Create virtual indexes, test before physical creation.</li>
+                        <li><strong>Rewrite & Index:</strong> Both scenarios.</li>
+                    </ul>
+                </li>
+                <li><strong>Compare Scenarios:</strong> View SQL syntax & execution plan differences side-by-side.</li>
+                <li><strong>Optimize Indexes:</strong> Analyze SQL workload (AWR, Foglight, SGA, source code). Recommend optimal index set.</li>
+                <li><strong>Impact Analysis:</strong> Model changes (new indexes), see effect on all existing SQL before implementation.</li>
+                <li><strong>Plan Control (11g+):</strong> Deploy better plans (SQL Plan Baselines) without app changes. Test 60+ execution plans, deploy best.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-7">
+            <h3><span role="img" aria-label="wrench">🛠️</span> DB Admin Module</h3>
+            <ul>
+                <li><strong>Health Check:</strong> Comprehensive DB checkup for instances.
+                    <ul>
+                        <li>Identifies ORA-600s, unanalyzed objects, synonyms to non-existent objects.</li>
+                        <li>16 checks for Oracle RAC, 11 checks for production/virtualized environments.</li>
+                        <li>Schedule checks, email results automatically.</li>
+                        <li>Create multiple check types for different instances/days.</li>
+                    </ul>
+                </li>
+                <li><strong>Database Browser:</strong> Effective instance management.
+                    <ul>
+                        <li>Connect to multiple databases, see parameters side-by-side.</li>
+                        <li>Manage users, roles, tablespaces, system privileges.</li>
+                        <li>Startup/shutdown instances.</li>
+                        <li>RMAN integration for backups.</li>
+                        <li>Drill down into objects like Schema Browser.</li>
+                    </ul>
+                </li>
+                <li><strong>Statspack Browser:</strong> Analyze DB activity over time.
+                    <ul>
+                        <li>View reads/writes by tablespace over last 24 hours.</li>
+                        <li>Top sessions analysis.</li>
+                        <li>Visual charts (zoom, highlight, export to Excel).</li>
+                        <li><strong>Licensed Diagnostic Pack?</strong> Access AWR/ASH/ADDM reports.</li>
+                        <li>Manage Statspack collection jobs and snapshots.</li>
+                    </ul>
+                </li>
+                <li><strong>Trace File Browser:</strong> Visually inspect trace files without TKprof.
+                    <ul>
+                        <li>See all queries with binds, waits, performance profiles.</li>
+                        <li>View Execution vs. Parse vs. Fetch vs. Wait times.</li>
+                        <li>Click query to see bind variable values.</li>
+                        <li>Chart showing query count by time period.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-8">
+            <h3><span role="img" aria-label="link">🔌</span> Connectivity & Data Export</h3>
+            <ul>
+                <li><strong>EZCONNECT:</strong> Direct DB connection without TNSNames (since 8i).
+                    <p style="font-size: 8pt; margin: 3px 0;"><code>CONNECT user/pass@[//]host[:port][/service_name]</code></p>
+                    <p style="font-size: 8pt; margin: 3px 0;">Example: <code>scott/tiger@//localhost:1521/orcl</code></p>
+                </li>
+                <li><strong>Building WHERE IN lists:</strong> Drag values from data grids to editor for automatic comma-delimited lists with quotes.</li>
+                <li><strong>Export Data to Excel:</strong>
+                    <ul>
+                        <li><strong>Copy/Paste:</strong> Ctrl+C / Ctrl+V. Simple, but no formatting, requires Excel open.</li>
+                        <li><strong>Export Dataset (Delimited Text):</strong> Fast for large data (~25 sec for big sets), but not native XLS/XLSX.</li>
+                        <li>Export respects column order/visibility.</li>
+                    </ul>
+                </li>
+                <li><strong>Custom Queries:</strong> Generate dynamic SQL scripts based on selected objects.
+                    <ul>
+                        <li>Select objects > Right-click > Custom Queries.</li>
+                        <li>Example: Generate constraint inventory for multiple tables in 3 steps.</li>
+                        <li>Create your own or modify defaults.</li>
+                        <li>Toad ships with several pre-built (Constraint Type Summary, etc.).</li>
+                    </ul>
+                </li>
+                <li><strong>Toad Data Point:</strong> Query non-Oracle databases (SQL Server, MySQL, DB2, Sybase, PostgreSQL, Teradata). Free for Toad Suite users.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-1">
+            <h3><span role="img" aria-label="keyboard">⌨️</span> Essential Keyboard Shortcuts</h3>
+            <h4>Editor - Execution:</h4>
+            <ul>
+                <li><code>F9</code> / <code>Ctrl+Enter</code>: Execute statement.</li>
+                <li><code>F5</code>: Execute as script.</li>
+                <li><code>Ctrl+F9</code>: Verify without execution (parse).</li>
+                <li><code>Ctrl+E</code>: Execute Explain Plan.</li>
+                <li><code>F8</code>: SQL Recall (previous statements).</li>
+                <li><code>Alt+Up/Down</code>: Cycle through SQL history.</li>
+            </ul>
+            <h4>Editor - Navigation & Editing:</h4>
+            <ul>
+                <li><code>F2</code>: Toggle full screen Editor.</li>
+                <li><code>F6</code>: Toggle Editor/Results panel.</li>
+                <li><code>Ctrl+Alt+Page Up/Down</code>: Navigate results tabs.</li>
+                <li><code>F4</code>: DESC object at cursor.</li>
+                <li><code>Ctrl+.</code>: Display code completion list.</li>
+                <li><code>Ctrl+T</code>: Display pick list dropdown.</li>
+                <li><code>Ctrl+F</code>: Find text.</li>
+                <li><code>Ctrl+G</code>: Go to line number.</li>
+                <li><code>Ctrl+R</code>: Find and replace.</li>
+                <li><code>F3</code> / <code>Shift+F3</code>: Find next/previous.</li>
+            </ul>
+        </div>
+
+        <div class="section-box box-item color-2">
+            <h3><span role="img" aria-label="keyboard">⌨️</span> Shortcuts Continued</h3>
+            <h4>Editor - Code Management:</h4>
+            <ul>
+                <li><code>Ctrl+B</code>: Comment block.</li>
+                <li><code>Ctrl+Shift+B</code>: Un-comment block.</li>
+                <li><code>Ctrl+M</code>: Make code statement.</li>
+                <li><code>Ctrl+P</code>: Strip code statement.</li>
+                <li><code>Ctrl+N</code>: Name current SQL for later recall.</li>
+                <li><code>Ctrl+F12</code>: Send to external editor.</li>
+            </ul>
+            <h4>Debugging:</h4>
+            <ul>
+                <li><code>Shift+F5</code>: Set/delete breakpoint.</li>
+                <li><code>F11</code>: Run (continue execution).</li>
+                <li><code>F12</code>: Run to cursor.</li>
+                <li><code>Shift+F7</code>: Trace into.</li>
+                <li><code>Shift+F8</code>: Step over.</li>
+                <li><code>Shift+F10</code>: Trace out.</li>
+                <li><code>Ctrl+Alt+B</code>: Add watch at cursor.</li>
+                <li><code>Ctrl+F5</code>: Display Breakpoints window.</li>
+                <li><code>Ctrl+Alt+W</code>: Display Watches window.</li>
+                <li><code>Ctrl+Alt+C</code>: Display Call Stack.</li>
+                <li><code>Ctrl+Alt+E</code>: Display Evaluate/Modify.</li>
+                <li><code>Ctrl+Alt+D</code>: Display DBMS Output.</li>
+                <li><code>Shift+Ctrl+F9</code>: Set parameters.</li>
+            </ul>
+            <h4>General Navigation:</h4>
+            <ul>
+                <li><code>F1</code>: Open Toad documentation.</li>
+                <li><code>F10</code>: Display right-click menu.</li>
+                <li><code>Ctrl+D</code>: Open Quick Describe window.</li>
+                <li><code>Ctrl+Tab</code>: Cycle through child windows.</li>
+                <li><code>Ctrl+J</code>: Jump to.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer style="text-align: center; margin-top: 20px; padding: 15px; font-size: 9pt; color: #666; border-top: 1px solid #ddd;">
+        <p>Created with &hearts; by Manu and Claude Code 🤖</p>
+    </footer>
+</body>
+</html>
