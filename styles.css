@@ -208,6 +208,16 @@ footer p {
     margin: var(--spacing-xs) 0;
 }
 
+footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 /* ============================================
    INTERACTIVE STATES - Hover & Focus
    ============================================ */
